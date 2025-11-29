@@ -16,7 +16,7 @@ app.use(express.json());
 // -----------------------------
 const orderRoutes = require('./routes/orderRoutes');       // rotas de pedido (POST, GET, PUT, DELETE)
 const authRoutes = require('./routes/authRoutes');         // rota de login (POST /auth/login)
-const authMiddleware = require('./middleware/authMiddleware'); // middleware JWT que comentamos
+const authMiddleware = require('./middleware/authMiddleware'); // middleware JWT 
 
 // -----------------------------
 // Swagger (documentação)

@@ -4,7 +4,7 @@ const db = require('../db');
 
 
 /* ============================================================
-   1️⃣  FUNÇÃO PARA CRIAR UM PEDIDO (POST /order)
+    FUNÇÃO PARA CRIAR UM PEDIDO (POST /order)
    ============================================================ */
 exports.createOrder = (req, res) => {
 
@@ -90,7 +90,7 @@ exports.createOrder = (req, res) => {
 
 
 /* ============================================================
-   2️⃣  FUNÇÃO PARA BUSCAR UM PEDIDO PELO ID (GET /order/:orderId)
+    FUNÇÃO PARA BUSCAR UM PEDIDO PELO ID (GET /order/:orderId)
    ============================================================ */
 exports.getOrder = (req, res) => {
 
@@ -134,7 +134,7 @@ exports.getOrder = (req, res) => {
 
 
 /* ============================================================
-   3️⃣  LISTAR TODOS OS PEDIDOS (GET /order/list/all)
+   LISTAR TODOS OS PEDIDOS (GET /order/list/all)
    ============================================================ */
 exports.listOrders = (req, res) => {
 
@@ -157,7 +157,7 @@ exports.listOrders = (req, res) => {
 
 
 /* ============================================================
-   4️⃣  ATUALIZAR PEDIDO (PUT /order/:orderId)
+     ATUALIZAR PEDIDO (PUT /order/:orderId)
    ============================================================ */
 exports.updateOrder = (req, res) => {
 
@@ -189,14 +189,14 @@ exports.updateOrder = (req, res) => {
 
 
 // ============================================================
-// 5️⃣  DELETAR PEDIDO (DELETE /order/:orderId)
+//  DELETAR PEDIDO (DELETE /order/:orderId)
 // ============================================================
 exports.deleteOrder = (req, res) => {
 
     // ID do pedido enviado na URL
     const orderId = req.params.orderId;
 
-    // 1️⃣ Primeiro exclui todos os itens relacionados
+    // 1 Primeiro exclui todos os itens relacionados
     const deleteItemsQuery = "DELETE FROM Items WHERE orderId = ?";
 
     db.query(deleteItemsQuery, [orderId], (err) => {
@@ -206,7 +206,7 @@ exports.deleteOrder = (req, res) => {
             return res.status(500).json({ error: "Erro ao deletar itens do pedido" });
         }
 
-        // 2️⃣ Depois exclui o pedido em si
+        //  Depois exclui o pedido em si
         const deleteOrderQuery = "DELETE FROM `Order` WHERE orderId = ?";
 
         db.query(deleteOrderQuery, [orderId], (err) => {
